@@ -1,5 +1,3 @@
-//Through Table - This third table is soley to est the connection between the first two tables w/ their primary keys
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -12,24 +10,23 @@ Vote.init(
       primaryKey: true,
       autoIncrement: true
     },
-    // What needs to go here?
     user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'user',
-          key: 'id'
-        }
-      },
-      post_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'post',
-          key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
       }
     },
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'post',
+        key: 'id'
+      }
+    }
+  },
   {
     sequelize,
     timestamps: false,
